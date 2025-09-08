@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Bogden | Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6; /* Off-white */
+            color: #4a4a4a; /* Dark gray for text */
+        }
+        .tag {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #374151; /* gray-700 */
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            display: inline-block;
+            margin: 0.25rem;
+            font-size: 0.875rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            bottom: 0;
+            left: 1.5rem;
+            width: 2px;
+            background-color: #e5e7eb; /* gray-200 */
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 2rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 1.5rem;
+            top: 0.5rem;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 9999px;
+            background-color: #BA0C2F; /* UGA Red */
+            transform: translateX(-50%);
+            border: 2px solid #faf9f6; /* Match body background */
+        }
+        /* Message box for copy confirmation */
+        #copy-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #BA0C2F; /* UGA Red */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+        #copy-message.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        h2 {
+           font-size: 1.5rem; /* text-2xl */
+           font-weight: 700; /* font-bold */
+           color: #111827; /* gray-900 */
+           margin-bottom: 1rem; /* mb-4 */
+           border-bottom-width: 1px;
+           border-color: #BA0C2F; /* UGA Red */
+           padding-bottom: 0.5rem; /* pb-2 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Container -->
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-black">Sarah Bogden</h1>
+            <div class="flex items-center justify-center flex-wrap gap-x-6 gap-y-2 mt-4 text-gray-600">
+                <span class="whitespace-nowrap"><i class="fas fa-map-marker-alt mr-2 text-[#BA0C2F]"></i>Atlanta, GA</span>
+                <a href="tel:5613609454" class="group whitespace-nowrap hover:text-[#BA0C2F] transition-colors duration-300 copy-btn" data-copy="561.360.9454">
+                    <i class="fas fa-phone-alt mr-2 text-[#BA0C2F]"></i>561.360.9454
+                    <i class="fas fa-copy ml-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </a>
+                <a href="mailto:sarahbogden@gmail.com" class="group whitespace-nowrap hover:text-[#BA0C2F] transition-colors duration-300 copy-btn" data-copy="sarahbogden@gmail.com">
+                    <i class="fas fa-envelope mr-2 text-[#BA0C2F]"></i>sarahbogden@gmail.com
+                    <i class="fas fa-copy ml-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sarahrosebogden/" target="_blank" rel="noopener noreferrer" class="group whitespace-nowrap hover:text-[#BA0C2F] transition-colors duration-300 copy-btn" data-copy="https://www.linkedin.com/in/sarahrosebogden/">
+                    <i class="fab fa-linkedin mr-2 text-[#BA0C2F]"></i>LinkedIn
+                    <i class="fas fa-copy ml-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- Summary Section -->
+        <section id="summary" class="mb-10">
+            <h2>Summary</h2>
+            <p class="text-gray-700 leading-relaxed">
+                Highly organized and proactive MBA graduate from the University of Georgia with over 5 years of experience at a leading global consulting firm. Proven ability to manage complex projects, build strong relationships with senior leaders and external contacts, and drive operational efficiency.
+            </p>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="mb-10">
+            <h2>Professional Experience</h2>
+            <div class="relative timeline">
+                <!-- Timeline Item -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="font-semibold text-gray-500 text-sm">August 2019 – March 2025</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mt-1">THE BOSTON CONSULTING GROUP</h3>
+                    <p class="text-md text-gray-600 mb-4">Atlanta, GA</p>
+
+                    <div class="mb-4">
+                        <h4 class="font-bold text-[#BA0C2F]">Executive Assistant / Senior Administrative Assistant / Administrative Assistant</h4>
+                        <ul class="list-disc list-outside ml-5 mt-2 space-y-2 text-gray-700">
+                            <li>Successfully managed relationships and strategic priorities for up to 8 Partners and 13 Project Leaders, acting as a key liaison and ensuring their objectives were met efficiently. This involved anticipating needs and proactively addressing challenges in a fast-paced environment.</li>
+                            <li>Planned and executed numerous high-impact meetings, multi-day offsite strategy sessions, and large-scale corporate events for senior executives and key stakeholders. Responsibilities included everything from selecting venues to coordinating complex international travel and preparing essential materials.</li>
+                            <li>Enhanced operational effectiveness by identifying and implementing improvements to core processes, including expense management, time tracking, and complex scheduling systems.</li>
+                            <li>Facilitated clear and effective communication between senior leadership, global team members, external clients, and other high-level contacts, ensuring understanding and alignment.</li>
+                            <li>Managed sensitive and confidential information with discretion and ensured all activities and reporting for supported executives strictly followed company policies.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-[#BA0C2F]">Sector Coordinator</h4>
+                        <ul class="list-disc list-outside ml-5 mt-2 space-y-2 text-gray-700">
+                            <li>Coordinated large-scale global operational projects and strategic initiatives impacting over 4,000 consultants, demonstrating strong project management and organizational abilities.</li>
+                            <li>Collaborated with international operations teams to refine and improve internal strategies and processes, contributing to broader organizational goals.</li>
+                            <li>Analyzed operational data to create insightful reports that informed executive decision-making and led to improvements in administrative and strategic functions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-10">
+            <h2>Core Competencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-users mr-3 text-[#BA0C2F]"></i>Stakeholder & Relationship Management</h3>
+                    <p class="text-gray-700 text-sm">Proven ability to build and maintain strong working relationships with senior executives, high-level external contacts, and diverse teams. Skilled in anticipating needs and serving as a trusted point of contact.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-calendar-check mr-3 text-[#BA0C2F]"></i>Project & Event Coordination</h3>
+                    <p class="text-gray-700 text-sm">Extensive experience planning and managing complex events, meetings, and international travel from concept through execution, ensuring all logistical details are handled smoothly.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-cogs mr-3 text-[#BA0C2F]"></i>Strategic & Operational Support</h3>
+                    <p class="text-gray-700 text-sm">Adept at improving processes, managing complex schedules, and supporting strategic initiatives to achieve organizational goals. Experience analyzing data to inform decisions.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-comments mr-3 text-[#BA0C2F]"></i>Communication & Interpersonal Skills</h3>
+                    <p class="text-gray-700 text-sm">Excellent verbal and written communication abilities. Confident acting as a liaison between various parties and handling sensitive correspondence.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-lightbulb mr-3 text-[#BA0C2F]"></i>Problem-Solving & Initiative</h3>
+                    <p class="text-gray-700 text-sm">Proactive in identifying challenges, developing solutions, and managing priorities effectively in dynamic environments.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-shield-alt mr-3 text-[#BA0C2F]"></i>Confidentiality & Professionalism</h3>
+                    <p class="text-gray-700 text-sm">Deep understanding of the importance of discretion when handling confidential information related to business and personnel.</p>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-lg mb-2 flex items-center"><i class="fas fa-handshake mr-3 text-[#BA0C2F]"></i>Collaboration</h3>
+                    <p class="text-gray-700 text-sm">Proven ability to work effectively with diverse teams, both locally and internationally, to achieve shared objectives.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Grid for Education and Technical Skills -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Education Section -->
+            <section id="education" class="mb-10">
+                <h2>Education</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Master of Business Administration</h3>
+                        <p class="text-gray-600">University of Georgia | Athens, GA</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Bachelor of Arts</h3>
+                        <p class="text-gray-600">Montclair State University | Montclair, NJ</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Abilities Section -->
+            <section id="tech" class="mb-10">
+                <h2>Technical Abilities</h2>
+                <div class="flex flex-wrap -m-1">
+                    <span class="tag">Microsoft Outlook</span>
+                    <span class="tag">Microsoft Word</span>
+                    <span class="tag">Microsoft Excel</span>
+                    <span class="tag">PowerPoint</span>
+                    <span class="tag">SharePoint</span>
+                    <span class="tag">MS Teams</span>
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">Concur</span>
+                    <span class="tag">Zoom</span>
+                    <span class="tag">Webex</span>
+                    <span class="tag">Slack</span>
+                    <span class="tag">Google Meet</span>
+                    <span class="tag">Asana</span>
+                    <span class="tag">Trello</span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Copy Confirmation Message Box -->
+    <div id="copy-message">Copied to clipboard!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Copy to clipboard functionality
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            const copyMessage = document.getElementById('copy-message');
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const textToCopy = this.dataset.copy;
+                    
+                    // Create a temporary textarea to copy from
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showCopyMessage();
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                    }
+                    document.body.removeChild(textArea);
+                });
+            });
+
+            let messageTimeout;
+            function showCopyMessage() {
+                clearTimeout(messageTimeout);
+                copyMessage.classList.add('show');
+                messageTimeout = setTimeout(() => {
+                    copyMessage.classList.remove('show');
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
